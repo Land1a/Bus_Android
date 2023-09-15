@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
+    <!-- 스크롤 뷰에서 사용될 전체화면 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <!--정류장 검색창과 버튼을 위한 리니어레이아웃-->
+        <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--검색창-->
+            <!--검색창을 누르면 searchList 함수 호출-->
+            <EditText
+                android:id="@+id/stationName"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:onClick="searchList"
+                android:hint="정류장이름"
+                />
+            <!--검색버튼-->
+            <!--버튼을 누르면 searchCurrentBus 함수 호출-->
+            <!--<Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="searchCurrentBus"
+                android:layout_margin="5dp"
+                android:id="@+id/search"
+                android:text="검색"/> -->
+            <Button
+                android:text="검색"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/buttonshape"
+                android:shadowColor="#A8A8A8"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:onClick="searchCurrentBus"
+                android:layout_margin="5dp"
+                android:id="@+id/search"
+                />
+
+
+        </LinearLayout>
+        <!--오류 및 관련 내용을 출력하기 위한 택스트 뷰-->
+        <TextView
+            android:id="@+id/data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20dp"/>
+
+        <!--검색 결과를 출력하기 위한 리니어 레이아웃
+        자바 코드로 내부에 새로운 리니어 레이아웃(A)를 추가하고 A 내부에 버튼과 텍스트뷰 추가-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout"
+            android:orientation="vertical">
+        </LinearLayout>
+
+        <!--검색기록을 저장하는 리스트뷰 초기에는 gone을 이용해 화면에 출력이 안됌-->
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+
+    </LinearLayout>
+
+</ScrollView>
